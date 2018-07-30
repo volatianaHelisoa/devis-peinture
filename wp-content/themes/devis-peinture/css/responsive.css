@@ -1,0 +1,79 @@
+@media (min-width:1201px) {
+	.submit,body a,*:before,*:after{ -webkit-transition:all 200ms ease-in-out; -moz-transition:all 200ms ease-in-out; -ms-transition:all 200ms ease-in-out; transition:all 200ms ease-in-out;}	
+	.link:hover{ background:#252525}
+	.bloc-pub a:hover { background:#ff9e25}
+	.bloc-pub a:hover:after { right:10px}
+	.wp-pagenavi a:hover,
+	.breadCrumb a:hover { color:#ff9e25}
+	.listing-blog .title:hover { color:#000}
+	.submit:hover { background:#000}
+}
+@media (max-width:1024px) {
+	.blocText .wrapper{ padding-left:381px}	
+	.wrapTemoins .item{ padding:0 5px}
+	#header{ height:700px; text-align:center; position:relative; background-size:cover}
+	#header .wrapper{ position:relative; z-index:99}
+	#header:before{ display:block; content:''; display:block; position:absolute; top:0; bottom:0; left:0; right:0; background:rgba(0,0,0,0.5); color:#fff}
+	.titreBanner h1{ color:#fff}
+	.titreBanner{ padding-left:0; max-width:100%; text-align:center}
+	.titreBanner h1:after{ left:0; right:0; margin:auto}
+	#logo{ margin:40px 0 43px 0}
+	.titre-pub span { font-size:32px}
+	.text-left { width:290px;}
+	.content-form { padding-left: 316px;}
+	.breadCrumb .container { width:100%;}
+	
+	.page #header { background:#fff; padding:20px 0}
+	.page #header .wrapper:before,
+	.page #header:before,
+	.footerRight:before { display:none}	
+	.page #logo { position:static}
+	.breadCrumb { text-align:left}
+	.listing-blog .title { font-size:21px}
+	.wp-pagenavi a.nextpostslink,
+	.wp-pagenavi a.previouspostslink { font-size:0}
+	.page .content-container { border-top: 8px solid #ff9e25;}
+	.content-text { padding-left:10px}
+}
+
+@media (max-width:820px) {
+	.blocastuceBlog .wrapper>div{ width:100%;}
+	.blocAstuce{ padding-right:0; padding-bottom:40px;}
+	.blocBlog{ padding-left:0}
+	.wrapTemoins .item{ width:50%;}
+	.wrapTemoins .item:last-of-type { margin-top:10px;}
+	.blocCompare .left,
+	.blocCompare .right{ width:100%; float:none; position:static}
+	.blocCompare .right { min-height:inherit}
+	.blocCompare .right h2 { display:none}
+	.blocCompare .right ul { padding:40px 0}
+	.blocText .wrapper:before{ display:none}
+	.blocText .wrapper { padding-left:40px}
+	.blocastuceBlog .wrapper { padding-bottom: 80px;}
+}
+@media (max-width:760px) {
+
+}
+@media (max-width:600px) {
+	#header { height:380px;}
+	.blocText .wrapper,.blocTemoins,
+	.wrapper { padding-left:20px; padding-right:20px}	
+	.titreBanner h1 span { font-size:35px; line-height:38px; padding-right:0}
+	.titreBanner h1 { font-size:25px; line-height:30px}
+	.blocCompare { margin-top:40px}
+	.wrapTemoins .item>div,
+	.wrapTemoins .item { max-width:inherit; width:100%;}
+	.wrapTemoins .item {margin:0 0 10px !important}
+	#footer .wrapper>div { width:100%; display:block; padding:20px 20px; text-align:center}
+	.titreBanner h1:after,
+	#footer:after { display:none}
+	#footer .wrapper { padding:0}
+	.footerRight { background:#ff9e25}
+	.footerRight em:first-of-type { margin-left:0}
+	.titre { min-width:inherit; font-size:20px}
+	.listing-blog>div { width:100%;}
+	.page h1 { font: normal 26px/26px dinb;}
+	.text-left { width:auto; display:block; position:static; padding:40px 20px; margin-bottom:36px;}
+	.content-form { padding-left:0;}
+	.wrap-contact { padding-right:0; box-shadow:none}
+}
