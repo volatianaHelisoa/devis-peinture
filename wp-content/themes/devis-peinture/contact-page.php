@@ -10,8 +10,9 @@ $p = get_post($pageid);
         <main class="content-container content-generique">
 			<div class="breadCrumb">
             	<div class="container">
-                	<a href="<?php echo  get_permalink(get_page_by_path("home")->ID); ?>">Home</a>
-                    <span class="current-nav">Contact</span>
+                	<?php if ( function_exists('yoast_breadcrumb') ) {
+                    yoast_breadcrumb('<div class="breadCrumbs">','</div>');
+                    } ?>
                 </div>
             </div>
             <div class="container content">

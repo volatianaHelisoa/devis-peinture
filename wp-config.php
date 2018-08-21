@@ -83,7 +83,7 @@ $table_prefix  = 'dp_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define('WP_DEBUG', false);
-
+define('PATH_URL', '/devispeinture/');
 /* C’est tout, ne touchez pas à ce qui suit ! */
 
 /** Chemin absolu vers le dossier de WordPress. */
@@ -92,3 +92,4 @@ if ( !defined('ABSPATH') )
 
 /** Réglage des variables de WordPress et de ses fichiers inclus. */
 require_once(ABSPATH . 'wp-settings.php');
+

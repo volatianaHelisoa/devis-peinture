@@ -8,11 +8,17 @@ register_nav_menus(
 
 add_theme_support('post-thumbnails');
 add_image_size('blog-liste', 370, 235, true);
-add_image_size('blog-detail', 772, 322, true);
+add_image_size('blog-detail', 747, 331, true);
+add_image_size('mentions', 370, 422, true);
+// require_once  get_template_directory() . '/inc/rewrite.php';
+// require_once  get_template_directory() . '/inc/blog.class.php';
+// require_once  get_template_directory() . '/inc/widgets/ArticleWidget.php' ;
+// require_once  get_template_directory() . '/inc/temoignage.class.php' ;
 
-require_once 'inc/blog.class.php';
-require_once  '/inc/widgets/ArticleWidget.php' ;
-require_once  '/inc/temoignage.class.php' ;
+require_once  get_template_directory() . '/inc/rewrite.php';
+require_once  get_template_directory() . '/inc/blog.class.php';
+require_once  get_template_directory() . '/inc/widgets/ArticleWidget.php' ;
+require_once  get_template_directory() . '/inc/temoignage.class.php' ;
 
 remove_action("wp_head", "wp_generator");
 add_filter('login_errors',create_function('$a', "return null;"));

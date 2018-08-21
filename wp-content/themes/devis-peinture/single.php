@@ -30,7 +30,7 @@ $astuces = CBlog::getBy(2,2);
                                 <?php foreach ($astuces as $post) :  ?>
                                     <div class="col-md-6">
                                         <div class="item">
-                                            <img src="<?php echo CBlog::getArticleImage($post->thumbnail,'blog-small'); ?>" alt="<?php echo $post->title; ?>">
+                                            <img src="<?php echo CBlog::getArticleImage($post->thumbnail,'blog-liste'); ?>" alt="<?php echo $post->title; ?>">
                                             <div class="text white-bg">
                                                 <a href="<?php echo $post->link; ?>" class="title"><?php echo $post->title; ?></a>
                                                 <p><?php echo $post->extrait ?></p>
@@ -48,7 +48,7 @@ $astuces = CBlog::getBy(2,2);
                             	<div class="titre-pub">
                                 	<span>Comparez et Obtenir </span>un devis de peinture rapidement en ligne
                                 </div>
-                                <a href="">Devis Gratuit</a>
+                                <a href="<?php echo  get_permalink(get_page_by_path("home")->ID); ?>">Devis Gratuit</a>
                             </div>
                             <div class="blocAstuce">
                             	<div class="titre"><span>Conseils &amp; ASTUCES</span></div>

@@ -9,7 +9,7 @@ $blogs = CBlog::getBy(3);
         	<div class="wrapper">
             	<div class="blocCompare">
                 	<div class="left">
-                    	
+                    <?php the_field('script'); ?>
                     </div>
                     <div class="right">
                     	<h2>Comparez les professionnels de votre region</h2>

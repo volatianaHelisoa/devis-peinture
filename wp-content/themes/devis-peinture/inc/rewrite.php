@@ -23,22 +23,12 @@ class rewrite {
   /**
    * rewrite post type url
    */
-
-
   function post_type_link($permalink, $post, $leavename) {
 
     switch ($post->post_type) {
-      case 'blogs' :
-     // remplacer url blogs par blog
-        $permalink = str_replace('blogs/', 'blog/', $permalink);
+      case 'agenda' :
+        $permalink = $this->rewrite_permalink($post, $permalink);
         break;
-     case 'atelier':
-          $permalink = str_replace('atelier/', 'atelier-de-groupe/', $permalink);
-          break;
-    
-     case 'pourqui':
-          $permalink = str_replace('pourqui/', 'pour-qui/', $permalink);
-          break;
     }
 
     return $permalink;
@@ -48,13 +38,6 @@ class rewrite {
    * Fonction qui permet de change l'url des divers post_type le pays rattaché.
    */
   function rewrite_permalink($post, $permalink) {
-      
-    $genre_associe = wp_get_post_terms($post->ID, 'genre', array('fields' => 'ids'));
-    if (isset($genre_associe) && count($genre_associe) > 0) {
-        $genre_associe = get_term_by('term_id', $genre_associe[0], 'genre');
-        $permalink = str_replace('carte/', $genre_associe->slug . '/', $permalink);
-    }
-      
     return $permalink;
   }
 
@@ -64,11 +47,11 @@ class rewrite {
   function term_link($termlink, $term, $taxonomy) {
     global $statut;
 
-    /*switch ($taxonomy) {
-      case 'genre' :
-        $termlink = str_replace('genre/','agenda/',$termlink);
+    switch ($taxonomy) {
+      case 'category' :
+        $termlink = str_replace('category/', '',$termlink);
         break;
-    }*/
+    }
 
     return $termlink;
   }
@@ -79,60 +62,48 @@ class rewrite {
    * return array $rules.
    **/
   public function create_custom_rewrite_rules() {
-     
     global $wp_rewrite;
 
     remove_action('template_redirect', 'redirect_canonical');
-    $url_path = trim(parse_url(add_query_arg(array()), PHP_URL_PATH), '/');
-    if (preg_match("#.*?\/(blog)\/(.+?)\/$#", $_SERVER['REQUEST_URI']) && strpos($url_path, '/page') === false  ) {
-        // Define custom rewrite tokens
-        $post_type = '%posttype%';
-
-        // Add the rewrite tokens
-        $wp_rewrite->add_rewrite_tag($post_type, '(.+?)', 'post_type=blog');
-
-        // Define the custom permalink structure
-        $rewrite_keywords_structure = $wp_rewrite->root . "blog/%blogs%/";
-
-        // Generate the rewrite rules
-        $new_rule = $wp_rewrite->generate_rewrite_rules( $rewrite_keywords_structure, EP_NONE, false,false,false,false,false  );
-
-        $wp_rewrite->rules = $new_rule + $wp_rewrite->rules;
-    }
-
-     if (preg_match("#.*?\/(atelier-de-groupe)\/(.+?)\/$#", $_SERVER['REQUEST_URI']) && strpos($url_path, '/page') === false  ) {
-        // Define custom rewrite tokens
-        $post_type = '%posttype%';
-
-        // Add the rewrite tokens
-        $wp_rewrite->add_rewrite_tag($post_type, '(.+?)', 'post_type=atelier');
-
-        // Define the custom permalink structure
-        $rewrite_keywords_structure = $wp_rewrite->root . "atelier-de-groupe/%atelier%/";
-
-        // Generate the rewrite rules
-        $new_rule = $wp_rewrite->generate_rewrite_rules( $rewrite_keywords_structure, EP_NONE, false,false,false,false,false  );
-
-        $wp_rewrite->rules = $new_rule + $wp_rewrite->rules;
-    }
-
-     if (preg_match("#.*?\/(pour-qui)\/(.+?)\/$#", $_SERVER['REQUEST_URI']) && strpos($url_path, '/page') === false  ) {
+    $_SERVER['REQUEST_URI'] = str_replace(PATH_URL,'',$_SERVER['REQUEST_URI']);
+    
+    $tmp = explode("/", $_SERVER['REQUEST_URI']);
+ 
+    array_pop($tmp);
+  
+    $category = get_term_by('slug', $tmp[0], 'category');
+    
+    if (isset($category->term_id) && $category->term_id > 0 && (isset($tmp[1]) && $tmp[1] == 'page')) {
+    
+        $taxonomy     = '%category_name%';
+        $paged    = '%paged%';
         
-        // Define custom rewrite tokens
-        $post_type = '%posttype%';
-
         // Add the rewrite tokens
-        $wp_rewrite->add_rewrite_tag($post_type, '(.+?)', 'post_type=pourqui');
+        $wp_rewrite->add_rewrite_tag($taxonomy, '([^/]*)', 'category_name=');
+        $wp_rewrite->add_rewrite_tag($paged, '?([0-9]{1,})', 'paged=');
 
         // Define the custom permalink structure
-        $rewrite_keywords_structure = $wp_rewrite->root . "pour-qui/%pourqui%/";
+        $rewrite_keywords_structure = $wp_rewrite->root . "/" . $taxonomy . "/page/" . $paged ."/";
 
         // Generate the rewrite rules
-        $new_rule = $wp_rewrite->generate_rewrite_rules( $rewrite_keywords_structure, EP_NONE, false,false,false,false,false  );
+        $new_rule = $wp_rewrite->generate_rewrite_rules( $rewrite_keywords_structure, EP_NONE, false,false,false,false,false	 );
+
+        $wp_rewrite->rules = $new_rule + $wp_rewrite->rules;
+    } elseif(isset($category->term_id) && $category->term_id > 0) {
+	$taxonomy     = '%category_name%';
+        
+        // Add the rewrite tokens
+        $wp_rewrite->add_rewrite_tag($taxonomy, '([^/]*)', 'category_name=');
+
+        // Define the custom permalink structure
+        $rewrite_keywords_structure = $wp_rewrite->root . "/" . $taxonomy . "/";
+
+        // Generate the rewrite rules
+        $new_rule = $wp_rewrite->generate_rewrite_rules( $rewrite_keywords_structure, EP_NONE, false,false,false,false,false	 );
 
         $wp_rewrite->rules = $new_rule + $wp_rewrite->rules;
     }
-   
+    
     return $wp_rewrite->rules;
   } // End create_custom_rewrite_rules()
 
@@ -142,9 +113,6 @@ class rewrite {
    * return array $public_query_vars.
    **/
   public function add_custom_page_variables($public_query_vars) {
-    $public_query_vars[] = 'mois';
-    $public_query_vars[] = 'annee';
-    $public_query_vars[] = 'jour';
 
     return $public_query_vars;
   } // End add_custom_page_variables()

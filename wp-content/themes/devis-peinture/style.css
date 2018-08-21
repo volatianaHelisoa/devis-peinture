@@ -89,10 +89,10 @@ strong 	            { color:#292929; font:normal 16px/21px dinm; letter-spacing:
 
 .content-container		{ position:relative}
 .blocCompare 			{ margin-top:-162px; position:relative; background:#fff; margin-bottom:54px;}
-.blocCompare .left  	{ width:58%; position:absolute; top:0; bottom:0; left:0}
-.blocCompare .right 	{ width:42%; min-height:826px; background:url(images/comparaison.jpg) center no-repeat; background-size:cover; text-align:right; float:right;}
+.blocCompare .left  	{ width:58%;}
+.blocCompare .right 	{ width:42%; background:url(images/comparaison.jpg) center no-repeat; background-size:cover; text-align:right; position:absolute; right:0; top:0; bottom:16px}
 .blocCompare .right h2 	{ text-transform:uppercase; font:normal 35px/42px dinb; letter-spacing:-0.1px; text-align:center; padding:51px 40px 37px; position:relative; background:url(images/trait.svg) center bottom no-repeat; background-size:141px; color:#252525}
-.blocCompare .right ul 	{ padding:233px 0 86px 0; margin-right:-8px; display:inline-block; width:100%; max-width:267px}
+.blocCompare .right ul 	{ padding:142px 0 86px 0; margin-right:-8px; display:inline-block; width:100%; max-width:267px}
 .blocCompare .right li 	{ color:#fff; font:normal 20px/24px dinm; background:#ff9e25; padding:12px 0 12px 62px; margin-bottom:49px; text-align:left; position:relative}
 .blocCompare .right li:after 		{ content: "";display: inline-block;width: 0;height: 0;border-style: solid;border-width: 8px 8px 0 0;border-color: #ff9e25 transparent transparent transparent; position:absolute; right:0; bottom:-8px}
 .blocCompare .right li span 		{ display:block; font:normal 40px/56px dinm; width:56px; height:56px; text-align:center; color:#ff9e25; background:#fff; border-radius:50%; position:absolute; top:50%; margin-top:-28px; left:-13px}
@@ -104,6 +104,7 @@ strong 	            { color:#292929; font:normal 16px/21px dinm; letter-spacing:
 .text h2 							{ text-transform:uppercase; font:normal 28px/24px hmc; color:#ff9e25;padding-bottom: 35px;}
 .text h3 							{ color:#616161; font:normal 24px/24px dinb;padding-bottom: 27px;}
 .text p 							{ padding-bottom: 22px;}
+.listing-blog .item .text { min-height:250px; }
 
 .blocastuceBlog .wrapper 			{ font-size:0;padding-bottom: 39px;}
 .blocastuceBlog .wrapper>div 		{ width:50%; display:inline-block; vertical-align:top}
@@ -123,16 +124,15 @@ strong 	            { color:#292929; font:normal 16px/21px dinm; letter-spacing:
 .blog 								{ text-align:left; padding:8px 20px 36px; border:1px solid #f5f5f5;}
 .blog h3 							{ color:#ff9e25; font:normal 18px/23px dinb;padding-bottom: 5px;}
 .blog p 							{ color:#616161; font:normal 16px/20px dinr;}
-.blog>div 							{ border-bottom:1px solid #f5f5f5;}
+.blog>div 							{ border-bottom:1px solid #f5f5f5; padding:9px 12px 15px 34px; display:block; background:url(images/arrow-link.svg) left 10px no-repeat}
 .blog>div:last-of-type 				{ border:none}
-.blog a 							{ padding:9px 12px 15px 34px; display:block; background:url(images/arrow-link.svg) left 10px no-repeat}
 .blocBlog .link 					{ position:absolute; right:54px; bottom:-17px}
 
 .blocTemoins 						{ text-align:center; padding:0 40px; background:url(images/bg-temoins.jpg) center no-repeat; background-size:cover}
 .blocTemoins h2 					{ display:inline-block; padding:11px 36px; vertical-align:top; background:#231f20;font: normal 18px/20px dinb; color: #fff; text-transform:uppercase; margin-top:-20px}
 .wrapTemoins 						{ text-align:center; font-size:0; letter-spacing:0; padding:46px 0 70px}
 .wrapTemoins .item 					{ display:inline-block; vertical-align:top; width:33.33%; padding:0 17px; max-width:402px}
-.wrapTemoins .item>div 				{ max-width:372px; margin:0 auto; font:normal 16px/23px dinl; color:#616161; text-align:left; padding:17px 35px 17px 70px; position:relative; background:url(images/icone-quote.svg) 30px 18px no-repeat rgba(255,255,255,0.9)}
+.wrapTemoins .item>div 				{ max-width:372px;min-height:270px;  margin:0 auto; font:normal 16px/23px dinl; color:#616161; text-align:left; padding:17px 35px 17px 70px; position:relative; background:url(images/icone-quote.svg) 30px 18px no-repeat rgba(255,255,255,0.9)}
 .wrapTemoins .item>div:before 		{ content:''; display:block; position:absolute; width:2px; top:18px; height:45px; background:#c3c3c3; left:58px}
 .nomTemoin 							{ text-align:right;}
 .wrapTemoins .item p 				{ min-height:70px}
@@ -156,7 +156,7 @@ strong 	            { color:#292929; font:normal 16px/21px dinm; letter-spacing:
 .listing-blog { margin-bottom:40px;}
 .listing-blog img { width:100%; height:auto} 
 .listing-blog>div { margin-bottom:20px;}
-.listing-blog .title { color:#ff9e25; font:normal 24px/25px dinb; min-height:55px; padding-bottom:10px; display:block}
+.listing-blog .title { color:#ff9e25; font:normal 24px/25px dinb; min-height:65px; display:block}
 .white-bg { background:#fff}
 .listing-blog .text  { padding:14px 20px 0;}
 .listing-blog .item {-webkit-box-shadow: 0px 17px 30px 0px rgba(0, 0, 0, 0.06);-moz-box-shadow:0px 17px 30px 0px rgba(0, 0, 0, 0.06);box-shadow:0px 17px 30px 0px rgba(0, 0, 0, 0.06);}

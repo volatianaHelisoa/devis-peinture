@@ -19,7 +19,7 @@ $host_url =  get_option('siteurl') . "/";
         	<div class="wrapper">
             	<a href="<?php echo  get_permalink(get_page_by_path("home")->ID); ?>" id="logo"><img src="<?php bloginfo( 'template_url' ); ?>/images/logo.svg" alt=""></a>
                 <div class="titreBanner">
-                	<h1><span>Comparez et Obtenir</span> un devis de peinture rapidement en ligne</h1>
+                	<h1><span>Obtenir</span> un devis de peinture rapidement en ligne</h1>
                 </div>
             </div>
         </div>

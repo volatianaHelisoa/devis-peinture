@@ -8,9 +8,9 @@ $temoignage = CTemoignage::getBy(3);
 ?>
 <main class="content-container">
         	<div class="wrapper">
-            	<div class="blocCompare">
-                	<div class="left">
-                    	
+            	<div class="blocCompare" id="compareDevis">
+                	<div class="left">  
+                    <?php the_field('script'); ?>
                     </div>
                     <div class="right">
                     	<h2>Comparez les professionnels de votre region</h2>
@@ -18,7 +18,7 @@ $temoignage = CTemoignage::getBy(3);
                         	<li><span>01</span>Je remplis le formulaire</li>
                         	<li><span>02</span>Je recois des propositions</li>
                         	<li><span>03</span>Je compare les offres</li>
-                        	<li><span>04</span>Je choisis meilleur</li>
+                        	<li><span>04</span>Je choisis le meilleur offre</li>
                         </ul>
                     </div>
                     <div class="clear"></div>
@@ -51,10 +51,9 @@ $temoignage = CTemoignage::getBy(3);
                         <div class="blog">
                         <?php  foreach ($blogs as $post) :  ?>
                         	<div>
-                            	<a href="<?php echo $post->link; ?>" title="">
-                                	<h3><?php echo $post->title; ?></h3>
-                                    <p><?php echo $post->extrait ?></p>
-                                </a>
+                            	<a href="<?php echo $post->link; ?>" title=""><h3><?php echo $post->title; ?></h3></a>
+                                <p><?php echo $post->extrait ?></p>
+                                
                             </div>
                             <?php endforeach; ?>  
                             
@@ -70,7 +69,7 @@ $temoignage = CTemoignage::getBy(3);
                 <?php foreach ($temoignage as $post) :  ?>
                 	<div class="item">
                     	<div>
-                            <p><?php echo substr($post->content, 0, 200); ?></p>
+                            <p><?php echo $post->content; ?></p>
                             <div class="nomTemoin"><span><?php echo $post->author; ?></span></div>
                         </div>
                     </div>  

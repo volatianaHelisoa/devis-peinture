@@ -9,7 +9,6 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 $blogs = CBlog::getBy($category_id ,9,$paged);
 
-var_dump($category_id);
 ?>
 <main class="content-container">
 			<div class="breadCrumb">
@@ -33,7 +32,7 @@ var_dump($category_id);
                     foreach ($blogs as $post) :  ?>
                     <div class="col-md-4 col-xs-6">
                             <div class="item">
-                                <img src="<?php echo CBlog::getArticleImage($post->thumbnail,'blog-detail'); ?>" alt="<?php echo $post->title; ?>">
+                                <img src="<?php echo CBlog::getArticleImage($post->thumbnail,'blog-liste'); ?>" alt="<?php echo $post->title; ?>">
                                 <div class="text white-bg">
                                     <a href="<?php echo $post->link; ?>" class="title"><?php echo $post->title; ?></a>
                                     <p><?php echo $post->extrait ?></p>

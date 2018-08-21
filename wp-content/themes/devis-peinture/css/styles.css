@@ -132,7 +132,7 @@ strong 	            { color:#292929; font:normal 16px/21px dinm; letter-spacing:
 .blocTemoins h2 					{ display:inline-block; padding:11px 36px; vertical-align:top; background:#231f20;font: normal 18px/20px dinb; color: #fff; text-transform:uppercase; margin-top:-20px}
 .wrapTemoins 						{ text-align:center; font-size:0; letter-spacing:0; padding:46px 0 70px}
 .wrapTemoins .item 					{ display:inline-block; vertical-align:top; width:33.33%; padding:0 17px; max-width:402px}
-.wrapTemoins .item>div 				{ max-width:372px; margin:0 auto; font:normal 16px/23px dinl; color:#616161; text-align:left; padding:17px 35px 17px 70px; position:relative; background:url(../images/icone-quote.svg) 30px 18px no-repeat rgba(255,255,255,0.9)}
+.wrapTemoins .item>div 				{ max-width:372px;min-height:270px; margin:0 auto; font:normal 16px/23px dinl; color:#616161; text-align:left; padding:17px 35px 17px 70px; position:relative; background:url(../images/icone-quote.svg) 30px 18px no-repeat rgba(255,255,255,0.9)}
 .wrapTemoins .item>div:before 		{ content:''; display:block; position:absolute; width:2px; top:18px; height:45px; background:#c3c3c3; left:58px}
 .nomTemoin 							{ text-align:right;}
 .wrapTemoins .item p 				{ min-height:70px}
